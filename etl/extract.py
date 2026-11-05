@@ -1,8 +1,6 @@
 import psycopg
 from psycopg.rows import dict_row
-
-IMMICH_SOURCE_URI = "postgresql://postgres:YOUR_IMMICH_PASSWORD@YOUR_NAS_IP:5432/immich"
-TARGET_COURSE_URI = "postgresql://course_admin:secretpassword@localhost:5433/immich_analytics"
+from etl.config import IMMICH_SOURCE_URI, TARGET_COURSE_URI
 
 def get_source_conn():
     """Read-only connection to production Immich container."""
