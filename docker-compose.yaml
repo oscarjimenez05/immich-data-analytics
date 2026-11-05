@@ -1,0 +1,16 @@
+services:
+  course_postgres:
+    image: postgres:17-alpine
+    container_name: immich_course_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: course_admin
+      POSTGRES_PASSWORD: secretpassword
+      POSTGRES_DB: immich_analytics
+    ports:
+      - "6543:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
